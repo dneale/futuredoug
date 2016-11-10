@@ -1,5 +1,14 @@
 // out: ./css/style.css, sourcemap: true, compress: true
 
+.randomColor() {
+  @randomColor: `(Math.random()*0xFFFFFF<<0).toString(16)`;
+  @colorHex: e(@randomColor);
+  @color: ~"#@{colorHex}";
+}
+
+body {
+  font-family: 'VT323', monospace;
+}
 .top {
     border-bottom: double 3px lightgrey;
     // box-shadow: 1px 1px;
@@ -17,6 +26,7 @@
     @media (max-width: 768px) {
       font-size: 5em;
     }
+    font-family: 'VT323', monospace;
   }
   p {
     font-size:3em;
@@ -25,7 +35,7 @@
     }
     color:grey;
     text-align:center;
-    // font-family:"Comic Sans MS", cursive, sans-serif
+    font-family: 'VT323', monospace;
   }
 }
 
@@ -66,8 +76,12 @@ body {
     min-width:150px;
     border-radius: 0;
     box-shadow: #666 -5px 3px;
-    // font-size: 1.5em;
+    font-size: 1.5em;
     color: yellow;
+    &:hover {
+      background-color: blue;
+      //background-color: randomColor();
+    }
   }
 }
 
